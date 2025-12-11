@@ -11,8 +11,8 @@ jobs:
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      ELECTRON_MIRROR: https://npm.taobao.org/mirrors/electron/
-      ELECTRON_BUILDER_DISABLE_COMPILE: true
+      ELECTRON_CACHE: ${{ runner.temp }}/electron
+      ELECTRON_CUSTOM_DIR: custom-electron
 
     steps:
       - name: Checkout repo
