@@ -1,8 +1,0 @@
-
-flask
-pyautogui
-google-generativeai
-openai
-SpeechRecognition
-pyaudio
-pyinstaller
