@@ -11,8 +11,6 @@ jobs:
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      ELECTRON_CACHE: ${{ runner.temp }}/electron
-      ELECTRON_CUSTOM_DIR: custom-electron
 
     steps:
       - name: Checkout repo
@@ -29,6 +27,8 @@ jobs:
 
       - name: Build Electron App
         working-directory: app
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run dist
 
       - name: Upload Installer to Release
