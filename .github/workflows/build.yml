@@ -2,8 +2,6 @@ name: Build CopilotDeskAI Installer
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "v*"
 
@@ -11,25 +9,21 @@ jobs:
   build:
     runs-on: windows-latest
 
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install app dependencies
         working-directory: app
         run: npm install
-
-      - name: Create .env file with API Key
-        working-directory: app
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          echo OPENAI_API_KEY=${OPENAI_API_KEY} > .env
 
       - name: Build Electron App
         working-directory: app
