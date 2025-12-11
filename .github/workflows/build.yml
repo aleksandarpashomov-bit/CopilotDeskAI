@@ -11,6 +11,8 @@ jobs:
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      ELECTRON_MIRROR: https://npm.taobao.org/mirrors/electron/
+      ELECTRON_BUILDER_DISABLE_COMPILE: true
 
     steps:
       - name: Checkout repo
@@ -23,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: app
-        run: npm install
+        run: npm install --force
 
       - name: Build Electron App
         working-directory: app
