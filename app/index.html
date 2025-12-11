@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CopilotDeskAI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>CopilotDeskAI</h1>
+
+        <div class="mode-select">
+            <label for="mode">Mode:</label>
+            <select id="mode">
+                <option value="auto">Auto</option>
+                <option value="manual">Manual</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <div class="input-section">
+            <input id="askInput" placeholder="Ask something about your screen..." />
+            <button id="screenshotBtn">📸 Screenshot & Analyze</button>
+        </div>
+
+        <pre id="output">Ready.</pre>
+    </main>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
