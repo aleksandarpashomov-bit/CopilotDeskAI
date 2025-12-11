@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
       - name: Checkout repo
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install app dependencies
+      - name: Install dependencies
         working-directory: app
         run: npm install
 
@@ -34,4 +34,4 @@ jobs:
         with:
           files: app/dist/*.exe
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
